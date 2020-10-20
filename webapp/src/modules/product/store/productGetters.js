@@ -1,1 +1,5 @@
-export default {};
+export default {
+  list(state) {
+    return state.items || [];
+  },
+};
