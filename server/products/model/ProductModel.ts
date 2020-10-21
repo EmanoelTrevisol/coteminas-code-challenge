@@ -4,13 +4,14 @@ import { statuses, types, sizes } from './ProductStatics';
 // TODO: Create indexes
 
 export interface IProduct {
-	title: string;
-	price: number;
-	offerPrice?: number;
-	status: string;
-	type: string;
-	size: string;
-	mainColor: string;
+  title: string;
+  price: number;
+  offerPrice?: number;
+  images: string[];
+  status: string;
+  type: string;
+  size: string;
+  mainColor: string;
 }
 
 export interface IProductDoc extends Document, IProduct {}
@@ -23,38 +24,42 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       index: true,
       required: true,
-		},
-		mainColor: {
-			type: String,
-			index: true,
-			required: true,
-		},
-		price: {
-			type: Number,
-			required: true,
-			index: true,
-		},
-		offerPrice: {
-			type: Number,
-			required: false,
-			index: true,
-		},
-		status: {
-			type: String,
-			required: true,
-			enum: Object.values(statuses),
-			default: statuses.ACTIVE,
-		},
-		type: {
-			type: String,
-			required: true,
-			enum: Object.values(types),
-		},
-		size: {
-			type: String,
-			required: true,
-			enum: Object.values(sizes),
-		}
+    },
+    mainColor: {
+      type: String,
+      index: true,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+      index: true,
+    },
+    offerPrice: {
+      type: Number,
+      required: false,
+      index: true,
+    },
+    status: {
+      type: String,
+      required: true,
+      enum: Object.values(statuses),
+      default: statuses.ACTIVE,
+    },
+    type: {
+      type: String,
+      required: true,
+      enum: Object.values(types),
+    },
+    images: {
+      type: [String],
+      required: true,
+    },
+    size: {
+      type: String,
+      required: true,
+      enum: Object.values(sizes),
+    },
   },
   {
     timestamps: true,
@@ -63,4 +68,7 @@ const ProductSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model<IProductDoc, IProductModel>('Product', ProductSchema);
+export default mongoose.model<IProductDoc, IProductModel>(
+  'Product',
+  ProductSchema
+);
