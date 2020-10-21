@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination.vue render component renders Pagination component 1`] = `
+<div class="pagination">
+  <div class="per-page-options"><select name="per-page" id="per-page">
+      <option value="10">
+        10 produtos por página
+      </option>
+      <option value="25">
+        25 produtos por página
+      </option>
+      <option value="50">
+        50 produtos por página
+      </option>
+      <option value="100">
+        100 produtos por página
+      </option>
+    </select></div>
+  <div class="page-options"><span class="first-page disabled"><font-awesome-icon icon="angle-double-left"></font-awesome-icon></span> <span class="previous-page disabled"><font-awesome-icon icon="angle-left"></font-awesome-icon></span> <span class="option selected">
+      1
+    </span> <span class="next-page disabled"><font-awesome-icon icon="angle-right"></font-awesome-icon></span> <span class="last-page disabled"><font-awesome-icon icon="angle-double-right"></font-awesome-icon></span></div>
+</div>
+`;

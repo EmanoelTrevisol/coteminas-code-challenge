@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader.vue renders Loader component 1`] = `
+<div class="loader">
+  <font-awesome-icon icon="spinner" spin="" size="4x"></font-awesome-icon>
+</div>
+`;
