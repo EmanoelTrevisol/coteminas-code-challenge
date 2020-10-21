@@ -75,7 +75,7 @@ describe('productActions.js', () => {
 
       expect(productApi.getList).toBeCalledWith({
         limit: 25,
-        currentPage: 2,
+        page: 2,
         filter: 'filtro de pesquisa',
       });
     });
@@ -85,7 +85,7 @@ describe('productActions.js', () => {
 
       expect(productApi.getList).toBeCalledWith({
         limit: 25,
-        currentPage: 2,
+        page: 2,
         filter: 'filtro de pesquisa',
       });
     });

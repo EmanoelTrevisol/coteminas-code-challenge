@@ -2,7 +2,7 @@
 
 exports[`EmptyState.vue renders EmptyState component 1`] = `
 <div class="empty-state">
-  <h4>Ops... não tem nada por aqui...</h4>
+  <h3>Ops... não tem nada por aqui</h3>
   <p class="text">Nenhum resultado para sua pesquisa foi encontrado</p>
 </div>
 `;
