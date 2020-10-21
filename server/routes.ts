@@ -3,15 +3,15 @@ import Boom from '@hapi/boom';
 import productRoutes from './products/ProductApi';
 import path from 'path';
 
-const serverPublicPath = path.resolve(__dirname, '/public/');
+const serverPublicPath = path.resolve(__dirname, '/public');
 export default function (app: express.Express) {
   app.use('/api/products', productRoutes);
 
-  app.use('/css', express.static(`${serverPublicPath}css`));
-  app.use('/fonts', express.static(`${serverPublicPath}fonts`));
-  app.use('/img', express.static(`${serverPublicPath}img`));
-  app.use('/js', express.static(`${serverPublicPath}js`));
-  app.use('/assets', express.static(`${serverPublicPath}assets`));
+  app.use('/css', express.static(`${serverPublicPath}/css`));
+  app.use('/fonts', express.static(`${serverPublicPath}/fonts`));
+  app.use('/img', express.static(`${serverPublicPath}/img`));
+  app.use('/js', express.static(`${serverPublicPath}/js`));
+  app.use('/assets', express.static(`${serverPublicPath}/assets`));
 
   app.all('/*', (req, res) => {
     res
@@ -19,9 +19,9 @@ export default function (app: express.Express) {
       .set({
         'content-type': 'text/html; charset=utf-8',
       })
-      .sendFile(`${serverPublicPath}index.html`);
+      .sendFile(`${serverPublicPath}/index.html`);
   });
-  app.use(express.static(`${serverPublicPath}static`));
+  app.use(express.static(`${serverPublicPath}/static`));
 
   // Error handling
   app.use(function (err: Error, req: Request, res: Response, _: NextFunction) {
