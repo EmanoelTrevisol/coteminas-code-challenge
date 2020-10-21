@@ -6,7 +6,8 @@
     "dev": "ts-node-dev ./index.ts",
     "test": "NODE_ENV=test jest --watchAll --detectOpenHandles",
     "seed:local": "ts-node ./products/scripts/seedProducts.ts --quantity=1000",
-    "seed:test": "NODE_ENV=test ts-node ./products/scripts/seedProducts.ts --quantity=1000"
+    "seed:test": "NODE_ENV=test ts-node ./products/scripts/seedProducts.ts --quantity=1000",
+    "build": "tsc -p ."
   },
   "dependencies": {
     "@hapi/boom": "^9.1.0",
