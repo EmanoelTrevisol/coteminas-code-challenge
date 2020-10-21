@@ -40,6 +40,7 @@ export default {
     }, 600),
     clearFilter() {
       this.$store.dispatch('product/updateSearchFilter', '');
+      this.search();
     },
     search() {
       this.$store.dispatch('product/getList');

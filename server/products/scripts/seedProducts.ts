@@ -129,15 +129,15 @@ function getProductsArray() {
   return products;
 }
 
-function dropCollection() {
-  return Product.collection.drop();
+function deleteAll() {
+  return Product.deleteMany({});
 }
 
 export async function seedProducts() {
   try {
     setupEnvironmentVariables();
     await connectToMongoDB();
-    await dropCollection();
+    await deleteAll();
 
     const products = getProductsArray();
 
