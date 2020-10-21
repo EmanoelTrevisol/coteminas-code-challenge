@@ -6,7 +6,7 @@
     <div class="result-items">
       <loader v-if="$wait.is('loading-products')" />
       <products v-else-if="products.length" :products="products" />
-      <empty-state v-else :title="emptyStateText"></empty-state>
+      <empty-state v-else :text="emptyStateText"></empty-state>
     </div>
     <div class="pagination-footer">
       <pagination
@@ -58,7 +58,7 @@ export default {
     currentPage: (() => generateComputed('currentPage'))(),
     perPage: (() => generateComputed('limit'))(),
     emptyStateText() {
-      return `Não encontramos nenhum produto com o termo ${this.filter}`;
+      return `Não encontramos nenhum produto com o termo '${this.filter}'`;
     },
   },
 };

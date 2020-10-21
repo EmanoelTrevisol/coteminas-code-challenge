@@ -149,9 +149,9 @@ describe('ProductList.vue', () => {
       expect(pagination.props('perPage')).toBe(limit);
     });
 
-    it('passes empty string title to EmptyString ', () => {
+    it('passes text prop to EmptyState ', () => {
       const filter = 'testando parâmetro';
-      const title = `Não encontramos nenhum produto com o termo ${filter}`;
+      const text = `Não encontramos nenhum produto com o termo '${filter}'`;
       const { wrapper } = build({
         items: [],
         total: 0,
@@ -161,22 +161,7 @@ describe('ProductList.vue', () => {
       const emptyState = wrapper.findComponent(EmptyState);
 
       expect(emptyState.exists()).toBe(true);
-      expect(emptyState.props('title')).toBe(title);
-    });
-
-    it('passes empty string title to EmptyString ', () => {
-      const filter = 'testando parâmetro';
-      const title = `Não encontramos nenhum produto com o termo ${filter}`;
-      const { wrapper } = build({
-        items: [],
-        total: 0,
-        filter,
-      });
-
-      const emptyState = wrapper.findComponent(EmptyState);
-
-      expect(emptyState.exists()).toBe(true);
-      expect(emptyState.props('title')).toBe(title);
+      expect(emptyState.props('text')).toBe(text);
     });
 
     it('send pagination data to store correctly', () => {

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState.vue renders EmptyState component 1`] = `
+<div class="empty-state">
+  <h4>Ops... não tem nada por aqui...</h4>
+  <p class="text">Nenhum resultado para sua pesquisa foi encontrado</p>
+</div>
+`;
