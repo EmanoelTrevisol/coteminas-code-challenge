@@ -3,7 +3,7 @@ import Boom from '@hapi/boom';
 import productRoutes from './products/ProductApi';
 import path from 'path';
 
-const distPath = path.normalize(`${__dirname}/dist`);
+const distPath = path.normalize(`${__dirname}`);
 
 export default function (app: express.Express) {
   app.use('/api/products', productRoutes);

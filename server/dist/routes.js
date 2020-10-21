@@ -7,7 +7,7 @@ var express_1 = __importDefault(require("express"));
 var boom_1 = __importDefault(require("@hapi/boom"));
 var ProductApi_1 = __importDefault(require("./products/ProductApi"));
 var path_1 = __importDefault(require("path"));
-var distPath = path_1.default.normalize(__dirname + "/dist");
+var distPath = path_1.default.normalize("" + __dirname);
 function default_1(app) {
     app.use('/api/products', ProductApi_1.default);
     app.use('/css', express_1.default.static(distPath + "/public/css"));
