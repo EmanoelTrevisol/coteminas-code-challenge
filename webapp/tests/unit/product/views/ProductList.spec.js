@@ -8,7 +8,7 @@ import Products from '@/modules/product/components/Products';
 import Loader from '@/components/Loader';
 import Pagination from '@/components/Pagination';
 import EmptyState from '@/components/EmptyState';
-import mockProducts from '@/modules/product/__mocks__/productsArray';
+import mockProducts from '@/modules/product/_mockedDBProducts/productsArray';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);

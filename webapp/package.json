@@ -13,6 +13,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/vue-fontawesome": "2",
+    "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "sinon": "^9.2.0",
     "vue": "^2.6.11",
