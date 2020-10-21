@@ -1,6 +1,6 @@
 <template>
   <div class="empty-state">
-    <h4>Ops... não tem nada por aqui...</h4>
+    <h3>Ops... não tem nada por aqui</h3>
     <p class="text">{{ text }}</p>
   </div>
 </template>
@@ -22,5 +22,16 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  h3 {
+    font-size: 1.3em;
+    font-family: $ff-roboto;
+    margin: 10px;
+  }
+
+  p {
+    margin: 10px;
+    font-size: 1.1em;
+  }
 }
 </style>

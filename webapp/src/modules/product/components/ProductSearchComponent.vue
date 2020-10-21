@@ -1,6 +1,6 @@
 <template>
   <div class="product-search-input">
-    <font-awesome-icon icon="search" />
+    <font-awesome-icon class="search-icon" icon="search" @click="search" />
     <input
       class="search-input"
       type="text"
@@ -8,7 +8,11 @@
       :value="filter"
       @input="(evt) => setSearchFilter(evt.target.value)"
     />
-    <font-awesome-icon icon="times-circle" />
+    <font-awesome-icon
+      class="clear-icon"
+      icon="times-circle"
+      @click="clearFilter"
+    />
   </div>
 </template>
 
@@ -34,6 +38,12 @@ export default {
     getList: debounce(function() {
       this.$store.dispatch('product/getList');
     }, 600),
+    clearFilter() {
+      this.$store.dispatch('product/updateSearchFilter', '');
+    },
+    search() {
+      this.$store.dispatch('product/getList');
+    },
   },
 };
 </script>
@@ -48,13 +58,15 @@ export default {
 	width: 500px;
 	border-radius: 20px;
 
-	.search-icon {
+	.search-icon, .clear-icon {
 		height: 20px;
+    cursor: pointer;
+    color: $medium;
 	}
 
 	.search-input {
     padding: 0 10px;
-		height: 40px;
+		height: 35px;
 		border: none;
     width: 85%
     font-size: 1.2em;

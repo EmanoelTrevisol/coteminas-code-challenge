@@ -170,7 +170,7 @@ export default {
       }
     },
     previousPage(evt) {
-      if (this.canGoToNextPage()) {
+      if (this.canGoToPreviousPage()) {
         this.$emit('update:currentPage', this.currentPage - 1);
       } else {
         evt.stopPropagation();
@@ -178,7 +178,7 @@ export default {
       }
     },
     firstPage(evt) {
-      if (this.canGoToNextPage()) {
+      if (this.canGoToPreviousPage()) {
         this.$emit('update:currentPage', 1);
       } else {
         evt.stopPropagation();
@@ -195,14 +195,46 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 40px;
 
   .per-page-options {
-
+    select {
+      height: 40px;
+      padding: 5px 10px;
+      font-size: 1.05em;
+      font-family: $ff-roboto;
+      font-weight: 300;
+      border-radius: 5px;
+      border-color: $medium;
+    }
   }
 
   .page-options {
-    span.option {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 
+    .option, .first-page, .previous-page, .next-page, .last-page {
+      height: 30px
+      padding: 5px 10px;
+      margin: 2px;
+      font-weight: 300;
+      font-size: 1.1em;
+      cursor: pointer;
+      border-radius: 5px;
+
+      &.disabled {
+        color: lighten($medium, 30%);
+        cursor: default;
+      }
+
+      &:hover {
+        background-color: $light;
+      }
+    }
+
+    .option.selected {
+      border: 1px solid $light;
     }
   }
 }

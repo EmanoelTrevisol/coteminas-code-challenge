@@ -65,11 +65,26 @@ export default {
     currentPage: (() => generateComputed('currentPage'))(),
     perPage: (() => generateComputed('limit'))(),
     emptyStateText() {
-      return `Não encontramos nenhum produto com o termo '${this.filter}'`;
+      const baseMsg = 'Não encontramos nenhum produto';
+
+      return this.filter ? `${baseMsg} com o termo '${this.filter}'` : baseMsg;
+    },
+  },
+  watch: {
+    currentPage() {
+      this.getList();
+    },
+    perPage() {
+      this.getList();
     },
   },
   created() {
-    this.$store.dispatch('product/getList');
+    this.getList();
+  },
+  methods: {
+    getList() {
+      this.$store.dispatch('product/getList');
+    },
   },
 };
 </script>
@@ -83,7 +98,12 @@ export default {
     margin: 0 auto;
 
     .result-items {
-      margin-bottom: 15px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid $light;
+      padding-bottom: 30px
+    }
+
+    .pagination-footer {
     }
   }
 }
