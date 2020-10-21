@@ -129,8 +129,15 @@ function getProductsArray() {
   return products;
 }
 
-function deleteAll() {
-  return Product.deleteMany({});
+async function deleteAll() {
+  try {
+    const deleted = await Product.deleteMany({});
+
+    return deleted;
+  } catch (error) {
+    console.log('Error deleting documents from collections');
+    return Promise.resolve();
+  }
 }
 
 export async function seedProducts() {
