@@ -42,9 +42,9 @@ describe('ProductListResultNumber.vue', () => {
   it('no results found correct string', () => {
     const wrapper = build();
 
-    const h4 = wrapper.find('h4');
+    const h3 = wrapper.find('h3');
 
-    expect(h4.element.innerHTML).toBe('nenhum produto encontrado');
+    expect(h3.element.innerHTML).toBe('nenhum produto encontrado');
   });
 
   it('changes string correctly to plural when state changes to > 1 results', async () => {
@@ -55,9 +55,9 @@ describe('ProductListResultNumber.vue', () => {
     store.commit('product/changeTotal', total);
 
     await localVue.nextTick();
-    const h4 = wrapper.find('h4');
+    const h3 = wrapper.find('h3');
 
-    expect(h4.element.innerHTML).toBe(newTitle);
+    expect(h3.element.innerHTML).toBe(newTitle);
   });
 
   it('changes string correctly with single result', async () => {
@@ -68,8 +68,8 @@ describe('ProductListResultNumber.vue', () => {
     store.commit('product/changeTotal', total);
 
     await localVue.nextTick();
-    const h4 = wrapper.find('h4');
+    const h3 = wrapper.find('h3');
 
-    expect(h4.element.innerHTML).toBe(newTitle);
+    expect(h3.element.innerHTML).toBe(newTitle);
   });
 });

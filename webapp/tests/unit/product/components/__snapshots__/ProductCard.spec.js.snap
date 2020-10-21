@@ -8,7 +8,7 @@ exports[`ProductCard.vue should match snapshot 1`] = `
       <div class="product-name">
 
       </div> <small class="product-type-size">
-
+        |
       </small>
     </div>
     <p class="price">
