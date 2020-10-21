@@ -3,22 +3,16 @@ import Boom from '@hapi/boom';
 import productRoutes from './products/ProductApi';
 import path from 'path';
 
-const projectRootPath = path.normalize(__dirname);
+const distPath = path.normalize(`${__dirname}/dist`);
 
 export default function (app: express.Express) {
   app.use('/api/products', productRoutes);
 
-  app.use('/css', express.static(path.resolve(projectRootPath, '/public/css')));
-  app.use(
-    '/fonts',
-    express.static(path.resolve(projectRootPath, '/public/fonts'))
-  );
-  app.use('/img', express.static(path.resolve(projectRootPath, '/public/img')));
-  app.use('/js', express.static(path.resolve(projectRootPath, '/public/js')));
-  app.use(
-    '/assets',
-    express.static(path.resolve(projectRootPath, '/public/assets'))
-  );
+  app.use('/css', express.static(`${distPath}/public/css`));
+  app.use('/fonts', express.static(`${distPath}/public/fonts`));
+  app.use('/img', express.static(`${distPath}/public/img`));
+  app.use('/js', express.static(`${distPath}/public/js`));
+  app.use('/assets', express.static(`${distPath}/public/assets`));
 
   app.all('/*', (req, res) => {
     res
@@ -26,9 +20,9 @@ export default function (app: express.Express) {
       .set({
         'content-type': 'text/html; charset=utf-8',
       })
-      .sendFile(path.resolve(projectRootPath, '/public/index.html'));
+      .sendFile(`${distPath}/public/index.html`);
   });
-  app.use(express.static(path.resolve(projectRootPath, '/public/static')));
+  app.use(express.static(`${distPath}/public/static`));
 
   // Error handling
   app.use(function (err: Error, req: Request, res: Response, _: NextFunction) {
