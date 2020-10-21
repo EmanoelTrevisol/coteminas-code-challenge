@@ -166,8 +166,8 @@ function getProductsArray() {
     }
     return products;
 }
-function dropCollection() {
-    return ProductModel_1.default.collection.drop();
+function deleteAll() {
+    return ProductModel_1.default.deleteMany({});
 }
 function seedProducts() {
     return __awaiter(this, void 0, void 0, function () {
@@ -180,7 +180,7 @@ function seedProducts() {
                     return [4 /*yield*/, db_1.default()];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, dropCollection()];
+                    return [4 /*yield*/, deleteAll()];
                 case 2:
                     _a.sent();
                     products = getProductsArray();
