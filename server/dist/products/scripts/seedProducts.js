@@ -167,11 +167,28 @@ function getProductsArray() {
     return products;
 }
 function deleteAll() {
-    return ProductModel_1.default.deleteMany({});
+    return __awaiter(this, void 0, void 0, function () {
+        var deleted, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, ProductModel_1.default.deleteMany({})];
+                case 1:
+                    deleted = _a.sent();
+                    return [2 /*return*/, deleted];
+                case 2:
+                    error_1 = _a.sent();
+                    console.log('Error deleting documents from collections');
+                    return [2 /*return*/, Promise.resolve()];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
 }
 function seedProducts() {
     return __awaiter(this, void 0, void 0, function () {
-        var products, error_1;
+        var products, error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -193,8 +210,8 @@ function seedProducts() {
                     process_1.exit(0);
                     return [3 /*break*/, 6];
                 case 5:
-                    error_1 = _a.sent();
-                    console.error(error_1);
+                    error_2 = _a.sent();
+                    console.error(error_2);
                     process_1.exit(1);
                     return [3 /*break*/, 6];
                 case 6: return [2 /*return*/];
