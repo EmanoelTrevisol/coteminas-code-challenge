@@ -1,19 +1,24 @@
 <template>
   <div class="products-list">
-    <div class="search-result-title">
-      <product-list-result-number />
+    <div class="search-title">
+      <product-list-title />
     </div>
-    <div class="result-items">
-      <loader v-if="$wait.is('loading-products')" />
-      <products v-else-if="products.length" :products="products" />
-      <empty-state v-else :text="emptyStateText"></empty-state>
-    </div>
-    <div class="pagination-footer">
-      <pagination
-        :total="total"
-        :current-page.sync="currentPage"
-        :per-page.sync="perPage"
-      />
+    <div class="search-result">
+      <div class="search-result-title">
+        <product-list-result-number />
+      </div>
+      <div class="result-items">
+        <loader v-if="$wait.is('loading-products')" />
+        <products v-else-if="products.length" :products="products" />
+        <empty-state v-else :text="emptyStateText"></empty-state>
+      </div>
+      <div class="pagination-footer">
+        <pagination
+          :total="total"
+          :current-page.sync="currentPage"
+          :per-page.sync="perPage"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -21,6 +26,7 @@
 <script>
 import ProductListResultNumber from '../../components/ProductListResultNumber';
 import Products from '../../components/Products';
+import ProductListTitle from '../../components/ProductListTitle';
 import EmptyState from '@/components/EmptyState';
 import Loader from '@/components/Loader';
 import Pagination from '@/components/Pagination';
@@ -42,6 +48,7 @@ function generateComputed(propName) {
 export default {
   components: {
     ProductListResultNumber,
+    ProductListTitle,
     Products,
     EmptyState,
     Loader,
@@ -61,10 +68,25 @@ export default {
       return `Não encontramos nenhum produto com o termo '${this.filter}'`;
     },
   },
+  created() {
+    this.$store.dispatch('product/getList');
+  },
 };
 </script>
 
 <style lang="stylus" scoped>
+.products-list {
+  margin-bottom: 50px;
+
+  .search-result {
+    width: 75%;
+    margin: 0 auto;
+
+    .result-items {
+      margin-bottom: 15px;
+    }
+  }
+}
 h1 {
 	color: red;
 }

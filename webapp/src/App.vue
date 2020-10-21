@@ -20,10 +20,13 @@ export default {
   font-family: $ff-roboto
 
   #nav {
-    margin: 0 0 30px;
+    margin: 0;
     padding: 5px 10px;
-    height: 50px;
+    height: 60px;
     background: $white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>

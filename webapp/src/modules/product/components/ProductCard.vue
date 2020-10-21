@@ -15,7 +15,7 @@
           {{ product.title }}
         </div>
         <small class="product-type-size">
-          {{ product.type }} {{ product.size }}
+          {{ product.type }} | {{ product.size }}
         </small>
       </div>
       <p class="price">
@@ -25,7 +25,7 @@
           </span>
           por
         </small>
-        {{ offerPrice || price }}
+        {{ product.offerPrice || product.price }}
       </p>
     </div>
   </div>
@@ -46,18 +46,20 @@ export default {
 .product-card {
   padding: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid $light;
 
   .images {
     padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 
     .image {
-      display: inline-block;
       width: 96px;
       height: 96px;
-      margin: 0 5px;
+      margin: 5px;
     }
   }
 
@@ -65,20 +67,25 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: 10px 20px;
 
     .title {
       .product-name {
         color: $dark;
+        font-size: 1.1em;
       }
 
       .product-type-size {
-        color: $light;
+        color: $medium;
       }
     }
 
     .price {
+      font-size: 1.1em;
+      text-align: end;
       .original {
-        color: $light;
+        color: $medium;
         .currency {
           text-decoration: line-through;
         }

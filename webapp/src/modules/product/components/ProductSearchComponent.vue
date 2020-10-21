@@ -43,9 +43,9 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border: 1px solid $black;
-	padding: 10px 20px;
-	width: 450px;
+	border: 1px solid $medium;
+	padding: 0px 10px;
+	width: 500px;
 	border-radius: 20px;
 
 	.search-icon {
@@ -53,8 +53,23 @@ export default {
 	}
 
 	.search-input {
-		height: 20px;
+    padding: 0 10px;
+		height: 40px;
 		border: none;
+    width: 85%
+    font-size: 1.2em;
+    font-family: $ff-roboto;
+    letter-spacing: 1.5px;
+    font-weight: 100;
+    color: $medium;
+
+    &::placeholder {
+      color: $medium;
+    }
+
+    &:focus {
+      outline: none;
+    }
 	}
 }
 </style>

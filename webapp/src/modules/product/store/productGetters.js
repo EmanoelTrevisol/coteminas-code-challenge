@@ -1,9 +1,19 @@
+import { size, type } from '../filter';
+
 function sanitizeItem(product) {
   return {
     ...product,
-    price: product.price.toLocaleString('pt-BR', { currency: 'BRL' }),
+    type: type(product.type),
+    size: size(product.size),
+    price: product.price.toLocaleString('pt-BR', {
+      currency: 'BRL',
+      style: 'currency',
+    }),
     offerPrice: product.offerPrice
-      ? product.offerPrice.toLocaleString('pt-BR', { currency: 'BRL' })
+      ? product.offerPrice.toLocaleString('pt-BR', {
+          currency: 'BRL',
+          style: 'currency',
+        })
       : undefined,
   };
 }
